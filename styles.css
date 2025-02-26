@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Text Sections */
 .text-section {
-    padding: 60px 0;
+    padding: 60px 0 60px 0;  
     text-align: center;
 }
 
@@ -97,6 +97,11 @@ h1, h2, h3, h4, h5, h6 {
     background-size: cover;
     background-position: center;
     position: relative;
+}
+
+/* Specific styling for nonnetjie image */
+section.picture-section[style*="nonnetjie.png"] {
+    background-position: left center;
 }
 
 /* Section Separation */
@@ -131,38 +136,43 @@ section {
 
 /* Enhanced mobile navbar toggler */
 .navbar-toggler {
-    border: 2px solid #FFF8E7; /* Cream border when transparent */
+    border: 2px solid #FFF8E7;
     padding: 0.5rem;
     border-radius: 5px;
+    width: 44px; /* Set fixed width */
+    height: 44px; /* Set fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .navbar-toggler-icon {
     background-image: none;
-    width: 30px;
+    width: 24px; /* Slightly smaller width */
     height: 2px;
-    background-color: #FFF8E7; /* Cream color when transparent */
+    background-color: #FFF8E7;
     position: relative;
     transition: all 0.3s ease;
-    /* margin-top: 10px; Center the middle line */
+    display: block;
 }
 
 .navbar-toggler-icon::before,
 .navbar-toggler-icon::after {
     content: '';
     position: absolute;
-    width: 30px;
+    width: 24px; /* Match the main line width */
     height: 2px;
-    background-color: #FFF8E7; /* Cream color when transparent */
+    background-color: #FFF8E7;
     transition: all 0.3s ease;
     left: 0;
 }
 
 .navbar-toggler-icon::before {
-    top: -8px; /* Position top line */
+    top: -6px; /* Reduced spacing */
 }
 
 .navbar-toggler-icon::after {
-    bottom: -8px; /* Position bottom line */
+    bottom: -6px; /* Reduced spacing */
 }
 
 .navbar.scrolled .navbar-toggler {
@@ -274,7 +284,7 @@ section {
 
 .calendar-btn {
     font-size: 0.9rem;
-    padding: 0.3rem 0.8rem;
+    padding: 0.5rem 1rem;
     background-color: #FFB6C1;
     border: 1px solid #FFB6C1;
     color: white;
@@ -282,8 +292,10 @@ section {
     font-family: 'Open Sans', sans-serif;
     transition: all 0.3s ease;
     text-decoration: none;
-    display: inline-block;
-    margin-left: 1rem;
+    display: block;
+    width: fit-content;
+    margin: 2rem auto 0 auto;
+
 }
 
 .calendar-btn:hover {
@@ -294,7 +306,7 @@ section {
 @media (max-width: 768px) {
     .calendar-btn {
         font-size: 0.8rem;
-        padding: 0.2rem 0.6rem;
+        padding: 0.4rem 0.8rem;
     }
 }
 
@@ -313,5 +325,32 @@ section {
 @media (max-width: 768px) {
     .section-divider {
         width: 90%;
+    }
+}
+
+/* Footer Styles */
+.site-footer {
+    padding: 2rem 0;
+    text-align: center;
+    background-color: transparent;
+    margin-top: 0;  /* Remove top margin */
+}
+
+.site-footer p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.site-footer .copyright {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 1.5rem 0;
     }
 }
