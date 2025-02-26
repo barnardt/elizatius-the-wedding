@@ -323,7 +323,7 @@ section {
     }
     
     .timeline-table td.time-cell {
-        width: 70px;
+        width: 1.5rem;
         padding-left: 0.5rem;
         padding-right: 0;
     }
