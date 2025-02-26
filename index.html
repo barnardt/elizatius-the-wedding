@@ -212,8 +212,8 @@
 
 
 
-    <!-- Text Section: RSVP -->
-    <section id="rsvp" class="text-section">
+    <!-- Text Section: Gifts -->
+    <section id="gifts" class="text-section">
         <div class="container">
             <h2>Gifts</h2>
             <p>
@@ -228,14 +228,14 @@
                 <a href="https://www.honeyfund.com/site/elizatius" target="_blank">Honeyfund</a> registry.
             </p>
         </div>
-        <div class="section-divider"></div>
+    </section>
 
+    <section id="rsvp" class="text-section">
         <div class="container">
-            <h2 style="margin-top: 2rem;">RSVP</h2>
+            <h2>RSVP</h2>
             <p>Please let us know if you'll be joining us by 31 March 2025. Check your email for the RSVP form.</p>
             <p>If you have any questions, please don't hesitate to get in touch via WhatsApp or send us an email at <span id="email" style="color: #ff8da1;"></span>.</p>
             <a href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=M2g1YWc0MmpnbDZhNmNnZjcyM284ajBxdTEgaXdiYXJuYXJkdEBt&tmsrc=iwbarnardt%40gmail.com" target="_blank" class="calendar-btn">Add to Calendar</a>
-
         </div>
     </section>
       <!-- Footer -->
@@ -256,6 +256,41 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+        });
+
+        // Handle navbar dropdown blur effect
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        navbarToggler.addEventListener('click', function() {
+            if (!document.querySelector('.navbar').classList.contains('scrolled')) {
+                document.body.classList.toggle('navbar-open');
+            }
+        });
+
+        // Remove blur effect when clicking outside navbar
+        document.addEventListener('click', function(event) {
+            const navbar = document.querySelector('.navbar-collapse');
+            const togglerButton = document.querySelector('.navbar-toggler');
+            
+            if (!navbar.contains(event.target) && !togglerButton.contains(event.target)) {
+                document.body.classList.remove('navbar-open');
+            }
+        });
+
+        // Remove blur effect when window is resized above mobile breakpoint
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 991) {  // Bootstrap lg breakpoint
+                document.body.classList.remove('navbar-open');
+            }
+        });
+
+        // Close mobile menu when nav item is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {toggle: false});
+                bsCollapse.hide();
+                document.body.classList.remove('navbar-open');
+            });
         });
     </script>
 

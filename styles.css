@@ -1,6 +1,7 @@
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 74px; /* Add padding for fixed navbar */
 }
 
 /* Base Styles */
@@ -9,6 +10,25 @@ body {
     background-color: #FFF8E7;
     color: #333;
     font-size: 1.1rem;
+}
+
+/* Blur effect for navbar dropdown */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+body.navbar-open::before {
+    opacity: 1;
 }
 
 /* Link Styles */
